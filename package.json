@@ -1,0 +1,22 @@
+{
+  "name": "heb-takehome",
+  "version": "1.0.0",
+  "description": "H-E-B Interview Project: Image Object Detection | Back-end based",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottiea2k11/HEB-TakeHome.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "raymond ayala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottiea2k11/HEB-TakeHome/issues"
+  },
+  "homepage": "https://github.com/scottiea2k11/HEB-TakeHome#readme"
+}
