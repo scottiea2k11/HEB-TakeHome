@@ -4,18 +4,17 @@
 
 1. About
 2. Getting Started
-3. Tech
-4. How to Install
-5. How to run
-6. Database
-7. Testing
-8. License
+3. How to Install
+4. How to run
+5. Testing
+6. Tech
+7. License
 
 ## ABOUT
 
 This repository represents the H-E-B take home assessment.
 
-The goal of this project is to determine objects within an image, generate a list of those objects per image, store that list, request image(s) associated within a given object, and insert new images into a db retaining metadata to the image.
+The goal of this project is to produce an interface for a user to commit the following actions: configure a pizza, order a pizza, receive confirmation, cancel a pizza order, view list of orders, and search orders.
 
 ## GETTING STARTED
 
@@ -36,10 +35,6 @@ Please follow the steps below to install and run this project.
 _Client_
 
 1. **NPM Install**
-
-_Database_
-
-_Datastore_
 
 _Services_
 
@@ -68,12 +63,7 @@ use the following command to run all tests.
 - React
 - Styled-Components
 - Redux
-
-### **Back-End**
-
 - Express
-- Node
-- _TensorFlow_ - Object Detection Library
 
 ## LICENSE
 
