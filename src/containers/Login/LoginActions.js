@@ -15,6 +15,9 @@
  */
 import axios from 'axios'
 import SetAuthToken from '../../util/SetAuthToken'
+import { setNotice } from '../../components/notice/NoticeActions'
+
+
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAIL = 'LOGIN_FAIL'
 
@@ -37,14 +40,18 @@ export const Login = (loginForm) => async (dispatch) => {
         type: LOGIN_SUCCESS,
         payload: response.data
       })
+
+      dispatch(setNotice('Token Stored. Login successful.', true))
+
       if (localStorage.access_token) {
         SetAuthToken(localStorage.access_token)
       }
     })
-      .catch(function (error) {
-        console.log(error)
+      .catch((error) => {
+        dispatch(setNotice('Bad password and username.', false))
       })
   } catch (error) {
+    dispatch(setNotice('Bad password and username', false))
     dispatch({
       type: LOGIN_FAIL
     })

@@ -54,11 +54,9 @@ router.post('/auth', [
       )
       res.status(200).json(accessToken)
     }).catch((error) => {
-      console.error(error)
       res.status(400).send(error)
     })
   } catch (err) {
-    console.error(err)
     res.status(500).json(err).send('Server Error')
   }
 })

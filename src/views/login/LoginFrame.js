@@ -13,7 +13,7 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './LoginFrame.styles'
 import { InputStyle } from '../../components/Input'
@@ -37,13 +37,15 @@ const LoginFrame = () => {
   const onSubmitLogin = (e) => {
     e.preventDefault()
     dispatch(Login(loginForm))
-    if (hasToken) navigate('../orders', { replace: true })
   }
 
   const onFormChange = (e) => {
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value })
   }
 
+  useEffect(() => {
+    if (hasToken) navigate('../orders', { replace: true })
+  }, [hasToken])
   return (
     <>
       <s.LoginFrame>

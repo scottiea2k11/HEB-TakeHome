@@ -21,8 +21,7 @@ import {
 const initialState = {
   loading: true,
   token: '',
-  hasToken: false,
-  auth: false
+  hasToken: false
 }
 
 export default (state = initialState, action) => {
@@ -34,7 +33,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        auth: false,
         hasToken: true,
         token: payload.access_token
       }
@@ -42,7 +40,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        auth: false
       }
     default:
       return state

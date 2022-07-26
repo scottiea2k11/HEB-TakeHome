@@ -32,10 +32,8 @@ const OrdersTable = ({ ...props }) => {
 
   useEffect(() => {
     async function searchArray (array, val) {
-      if(isEmpty(data)){
         const parsedData = await Search(array, val)
         setData(data => data = parsedData)
-      }
     }
     searchArray(orders, searchVal)
   }, [searchVal, orders])
