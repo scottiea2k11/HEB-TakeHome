@@ -28,7 +28,6 @@ export const GetOrders = () => async (dispatch) => {
       type: ORDERS_COLLECTED,
       payload: res.data
     })
-    console.log(res.data)
     return res.data
   } catch (error) {
     const errors = err.response.data.errors
@@ -67,7 +66,7 @@ export const DeleteOrder = (Order_ID) => async (dispatch) => {
   try {
     const body = JSON.stringify({ Order_ID })
     const config = {
-      method: 'DELETE',
+      method: 'delete',
       url: '/routes/orders.routes/orders',
       headers: {
         'Content-Type': 'application/json'
@@ -81,8 +80,6 @@ export const DeleteOrder = (Order_ID) => async (dispatch) => {
       console.info(response.data.message)
     })
   } catch (error) {
-    const errors = err.response.data.errors
-    if (errors) errors.array.forEach((err) => console.error(err))
     dispatch({
       type: ORDER_FAILED
     })
