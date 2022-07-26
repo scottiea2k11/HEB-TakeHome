@@ -17,9 +17,11 @@
 import { combineReducers } from "redux";
 
 // Reducers
-import LoginReducers from "../containers/Login/LoginReducers";
+import auth from "../containers/Login/LoginReducers";
+import order from '../containers/Orders/OrdersReducers'
 
 // Combine
 export default combineReducers({
-    LoginReducers
+    auth,
+    order
 })

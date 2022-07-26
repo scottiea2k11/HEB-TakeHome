@@ -17,21 +17,19 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import { Provider } from 'react-redux'
+import { Provider, useSelector } from 'react-redux'
 import Theme from '../Theme'
 import { GlobalStyles } from '../GlobalStyles'
 import store from './store'
 // containers
 import LoginContainer from '../containers/Login/LoginContainer'
 import OrdersContainer from '../containers/Orders/OrdersContainer'
-
-if(localStorage.token) {
-    //Set our token
-}
-
+import ProcureContainer from '../containers/Procure/ProcureContainer'
+import SetAuthToken from '../util/SetAuthToken'
 
 
 class App extends Component {
+
   render() {
     return (
         <Provider store={store}>
@@ -45,6 +43,7 @@ class App extends Component {
                         <Route path='*' element={<Navigate to='/login' replace/>}/>
                         <Route path="/login" element={<LoginContainer/>}/>
                         <Route path="/orders" element={<OrdersContainer/>}/>
+                        <Route path="/procure" element={<ProcureContainer/>}/>
                     </Routes>
                 </Theme>
             </BrowserRouter>

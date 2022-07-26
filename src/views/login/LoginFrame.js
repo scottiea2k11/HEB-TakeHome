@@ -14,29 +14,36 @@
  * ----------	---	---------------------------------------------------------
  */
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import * as s from './LoginFrame.styles'
 import {InputStyle} from '../../components/Input'
 import Button from '../../components/Button'
 import { Title } from '../../components/Title'
 import { Login } from '../../containers/Login/LoginActions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const LoginFrame = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch()
   const [loginForm, setLoginForm ] = useState({
     username: '',
     password: ''
   })
 
+  const { hasToken } = useSelector(state => ({
+    hasToken: state.auth.hasToken
+  }))
+
   const onSubmitLogin = (e) => {
     e.preventDefault()
-    // console.info(loginForm)
     dispatch(Login(loginForm))
+    if(hasToken) navigate('../orders', {replace: true})
   }
 
   const onFormChange = (e) => {
     setLoginForm({...loginForm, [e.target.name]: e.target.value});
   }
+
   return (
     <>
         <s.LoginFrame>

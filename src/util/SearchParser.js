@@ -17,16 +17,18 @@
 export function Search(array, value, ){
     return array.filter( order => {
         if(value === ""){
-            console.dir(order)
             return order;
         }
-        else if(order.map((header, index) => {
-            header[index].some(value.toLowerCase())
+        else if(Object.values(order).some(val => {
+            if(typeof val === "string") {
+                return val.toLowerCase().includes(value.toLowerCase());
+            }
+            else if( typeof val === "int"){
+                return val === parseInt(val);
+            }
         }))
         {
-            console.dir(order)
             return order;
-
         }
     })
 }
