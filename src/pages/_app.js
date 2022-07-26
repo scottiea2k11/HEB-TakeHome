@@ -17,15 +17,20 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
-import { Provider, useSelector } from 'react-redux'
+import { Provider } from 'react-redux'
 import Theme from '../Theme'
 import { GlobalStyles } from '../GlobalStyles'
 import store from './store'
+import { GetOrders } from '../containers/Orders/OrdersActions'
+import Notice from '../components/notice/Notice'
 // containers
 import LoginContainer from '../containers/Login/LoginContainer'
 import OrdersContainer from '../containers/Orders/OrdersContainer'
 import ProcureContainer from '../containers/Procure/ProcureContainer'
 import SetAuthToken from '../util/SetAuthToken'
+
+store.dispatch(GetOrders())
+
 
 class App extends Component {
   render () {
@@ -37,6 +42,7 @@ class App extends Component {
         <BrowserRouter>
           <Theme>
             <GlobalStyles />
+            <Notice/>
             <Routes>
               <Route path='*' element={<Navigate to='/login' replace />} />
               <Route path='/login' element={<LoginContainer />} />

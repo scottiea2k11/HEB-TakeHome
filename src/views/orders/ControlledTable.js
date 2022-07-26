@@ -14,12 +14,29 @@
  * ----------	---	---------------------------------------------------------
  */
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { GetOrders, DeleteOrder } from '../../containers/Orders/OrdersActions'
 import { Table } from '../../components/Table'
+
 
 const ControlledTable = ({ ...props }) => {
   const { data } = props
+  const dispatch = useDispatch()
   const [headers, setHeaders] = useState([])
   const [rows, setRows] = useState([])
+
+  const DeleteOrderFunction = (order_id) => {
+    dispatch(DeleteOrder(order_id))
+  }
+
+  const TableRow = ({ item, column, delAction }) => (
+    <Table.TR>
+      {column.map((val, index) => {
+        return <Table.TD key={index} children={item[`${val}`]} />
+      })}
+      <Table.DEL onClick={() => (delAction(item[`Order_ID`]))} children={'X'}/>
+    </Table.TR>
+  )
 
   useEffect(() => {
     if (data.length > 0 || data[0] !== undefined) {
@@ -32,26 +49,21 @@ const ControlledTable = ({ ...props }) => {
       <Table.Head>
         <Table.TR>
           {
-                  headers.map((header, index) => (
-                    <Table.TH key={index} children={header} />
-                  ))
-                }
+            headers.map((header, index) => (
+              <Table.TH key={index} children={header} />
+            ))
+          }
         </Table.TR>
       </Table.Head>
       <Table.Body>
         {rows !== undefined &&
-            rows.map((item, index) => <TableRow key={index} item={item} column={headers} />)}
+            rows.map((item, index) => <TableRow key={index} item={item} column={headers} delAction={DeleteOrderFunction} />)
+            }
       </Table.Body>
     </Table>
   )
 }
 
-const TableRow = ({ item, column }) => (
-  <Table.TR>
-    {column.map((val, index) => {
-      return <Table.TD key={index} children={item[`${val}`]} />
-    })}
-  </Table.TR>
-)
+
 
 export default ControlledTable
