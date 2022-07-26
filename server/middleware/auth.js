@@ -14,23 +14,22 @@
  * ----------	---	---------------------------------------------------------
  */
 
-
-const jwt = require('jsonwebtoken');
-const config = require('config');
+const jwt = require('jsonwebtoken')
+const config = require('config')
 
 module.exports = function (req, res, next) {
-    const token = req.header('access_token')
+  const token = req.header('access_token')
 
-    if(token) {
-        return res.status(401).json({ msg: 'Missing token, authorization denied.'})
-    }
+  if (token) {
+    return res.status(401).json({ msg: 'Missing token, authorization denied.' })
+  }
 
-    try {
-        const decoded = jwt.verify(token, config.get('jwtToken'))
-        req.user = decoded.user
-        req.token = config.get('jwtToken')
-        next()
-    } catch (error) {
-        res.status(401).json({ msg: 'Token is invalid.'})
-    }
+  try {
+    const decoded = jwt.verify(token, config.get('jwtToken'))
+    req.user = decoded.user
+    req.token = config.get('jwtToken')
+    next()
+  } catch (error) {
+    res.status(401).json({ msg: 'Token is invalid.' })
+  }
 }

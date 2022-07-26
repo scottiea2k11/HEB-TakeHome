@@ -18,7 +18,7 @@ The goal of this project is to produce an interface for a user to commit the fol
 
 ## GETTING STARTED
 
-Hi, you will need to clone this repository to your preferred directory and install supporting resources.
+Clone this repository to your preferred directory and install supporting resources.
 
 To clone this repo use the following link in your terminal or favorite IDE.
 
@@ -30,31 +30,22 @@ If you have Github CLI installed on your machine please use the following comman
 
 ## HOW TO INSTALL
 
-Please follow the steps below to install and run this project.
+Please follow the steps below to install.
 
-_Client_
+_application_
 
 1. **NPM Install**
 
-_Services_
-
 ## HOW TO RUN
 
-To run the client and services please use the following command.
+To run the client please use the following command for a development build.
 
+    npm run dev
+
+To start create a production build use the following commands.
+
+    npm run build
     npm run start
-
-To start the database use the following command.
-
-    npm run db
-
-## TESTING
-
-This project incorporates JEST and TravisCI for testing and hardware compatibility.
-
-use the following command to run all tests.
-
-    npm run test
 
 ## TECH
 
@@ -67,7 +58,7 @@ use the following command to run all tests.
 
 ## LICENSE
 
-**MIT License** Copyright 2022
+**MIT License**
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

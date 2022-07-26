@@ -15,38 +15,38 @@
  */
 
 import {
-    ORDER_POSTED,
-    ORDER_FAILED,
-    ORDER_DELETED,
-    ORDERS_COLLECTED
+  ORDER_POSTED,
+  ORDER_FAILED,
+  ORDER_DELETED,
+  ORDERS_COLLECTED
 } from './OrdersActions'
 
 const initialState = {
-    loading: true,
-    orders: []
+  loading: true,
+  orders: []
 }
 
 export default (state = initialState, action) => {
-    const { type, payload } = action
+  const { type, payload } = action
 
-    switch (type) {
-        case ORDER_POSTED:
-        case ORDER_FAILED:
-        case ORDER_DELETED:
-            return{
-                ...state,
-                loading: false
-            }
+  switch (type) {
+    case ORDER_POSTED:
+    case ORDER_FAILED:
+    case ORDER_DELETED:
+      return {
+        ...state,
+        loading: false
+      }
 
-        case ORDERS_COLLECTED:
-            return {
-                ...state,
-                loading:false,
-                orders: payload
-            }
-        default:
-            return {
-                ...state
-            }
-    }
+    case ORDERS_COLLECTED:
+      return {
+        ...state,
+        loading: false,
+        orders: payload
+      }
+    default:
+      return {
+        ...state
+      }
+  }
 }

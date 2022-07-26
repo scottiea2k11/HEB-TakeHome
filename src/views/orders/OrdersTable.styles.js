@@ -13,8 +13,7 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import styled from "styled-components";
-
+import styled from 'styled-components'
 
 export const TableWrapper = styled.div`
     justify-content: center;

@@ -15,11 +15,11 @@
  */
 
 import React from 'react'
-import  * as ReactDOM  from 'react-dom/client'
+import * as ReactDOM from 'react-dom/client'
 import App from './_app'
 import 'dotenv/config'
 
-const container = document.getElementById('root');
+const container = document.getElementById('root')
 
-const root = ReactDOM.createRoot(container);
-root.render(<App/>);
+const root = ReactDOM.createRoot(container)
+root.render(<App />)

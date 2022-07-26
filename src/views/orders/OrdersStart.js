@@ -29,9 +29,9 @@ const OrdersStart = () => {
         </s.StartText>
       </s.TextWrapper>
       <s.ButtonWrapper>
-          <Link to="/procure">
-            <Button prime={false} title={process.env.START_ORDER_BTN} transparent={false}/>
-          </Link>
+        <Link to='/procure'>
+          <Button prime={false} title={process.env.START_ORDER_BTN} transparent={false} />
+        </Link>
       </s.ButtonWrapper>
     </s.StartWrapper>
   )

@@ -14,21 +14,18 @@
  * ----------	---	---------------------------------------------------------
  */
 
-export function Search(array, value, ){
-    return array.filter( order => {
-        if(value === ""){
-            return order;
-        }
-        else if(Object.values(order).some(val => {
-            if(typeof val === "string") {
-                return val.toLowerCase().includes(value.toLowerCase());
-            }
-            else if( typeof val === "int"){
-                return val === parseInt(val);
-            }
-        }))
-        {
-            return order;
-        }
-    })
+export function Search (array, value) {
+  return array.filter(order => {
+    if (value === '') {
+      return order
+    } else if (Object.values(order).some(val => {
+      if (typeof val === 'string') {
+        return val.toLowerCase().includes(value.toLowerCase())
+      } else if (typeof val === 'int') {
+        return val === parseInt(val)
+      }
+    })) {
+      return order
+    }
+  })
 }

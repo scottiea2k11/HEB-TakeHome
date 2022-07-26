@@ -14,8 +14,8 @@
  * ----------	---	---------------------------------------------------------
  */
 
-import styled from 'styled-components';
-import {Wrapper} from '../../components/Wrapper';
+import styled from 'styled-components'
+import { Wrapper } from '../../components/Wrapper'
 
 export const OrdersWrapper = styled(Wrapper)`
     display: flex;

@@ -17,13 +17,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { InputStyle } from '../../components/Input'
 
-const ControlledSearch = ({...props}) => {
-
-    const {searchVal, handleChange} = props
+const ControlledSearch = ({ ...props }) => {
+  const { searchVal, handleChange } = props
 
   return (
     <>
-        <InputStyle placeholder='Search Orders.' value={searchVal} onChange={handleChange} />
+      <InputStyle placeholder='Search Orders.' value={searchVal} onChange={handleChange} />
     </>
   )
 }

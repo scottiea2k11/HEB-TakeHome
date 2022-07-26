@@ -13,9 +13,9 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import {Wrapper} from "../../components/Wrapper"
+import { Wrapper } from '../../components/Wrapper'
 
 export const LoginWrapper = styled(Wrapper)`
     height: 100%;

@@ -13,19 +13,19 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import * as s from './LoginFrame.styles'
-import {InputStyle} from '../../components/Input'
+import { InputStyle } from '../../components/Input'
 import Button from '../../components/Button'
 import { Title } from '../../components/Title'
 import { Login } from '../../containers/Login/LoginActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const LoginFrame = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [loginForm, setLoginForm ] = useState({
+  const [loginForm, setLoginForm] = useState({
     username: '',
     password: ''
   })
@@ -37,27 +37,27 @@ const LoginFrame = () => {
   const onSubmitLogin = (e) => {
     e.preventDefault()
     dispatch(Login(loginForm))
-    if(hasToken) navigate('../orders', {replace: true})
+    if (hasToken) navigate('../orders', { replace: true })
   }
 
   const onFormChange = (e) => {
-    setLoginForm({...loginForm, [e.target.name]: e.target.value});
+    setLoginForm({ ...loginForm, [e.target.name]: e.target.value })
   }
 
   return (
     <>
-        <s.LoginFrame>
-            <s.LoginForm onSubmit={onSubmitLogin}>
-                <Title prime={true}>
-                    {process.env.COMPANY}
-                </Title>
-                <s.LoginLabel>Username</s.LoginLabel>
-                <InputStyle type='text' name='username' value={loginForm.username} onChange={(e) => onFormChange(e)}/>
-                <s.LoginLabel>Password</s.LoginLabel>
-                <InputStyle type='password' name='password' value={loginForm.password} onChange={(e) => onFormChange(e)}/>
-                <Button title='Login' transparent={false}/>
-            </s.LoginForm>
-        </s.LoginFrame>
+      <s.LoginFrame>
+        <s.LoginForm onSubmit={onSubmitLogin}>
+          <Title prime>
+            {process.env.COMPANY}
+          </Title>
+          <s.LoginLabel>Username</s.LoginLabel>
+          <InputStyle type='text' name='username' value={loginForm.username} onChange={(e) => onFormChange(e)} />
+          <s.LoginLabel>Password</s.LoginLabel>
+          <InputStyle type='password' name='password' value={loginForm.password} onChange={(e) => onFormChange(e)} />
+          <Button title='Login' transparent={false} />
+        </s.LoginForm>
+      </s.LoginFrame>
     </>
   )
 }

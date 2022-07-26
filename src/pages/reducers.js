@@ -14,14 +14,14 @@
  * ----------	---	---------------------------------------------------------
  */
 
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux'
 
 // Reducers
-import auth from "../containers/Login/LoginReducers";
+import auth from '../containers/Login/LoginReducers'
 import order from '../containers/Orders/OrdersReducers'
 
 // Combine
 export default combineReducers({
-    auth,
-    order
+  auth,
+  order
 })

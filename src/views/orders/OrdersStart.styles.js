@@ -14,8 +14,8 @@
  * ----------	---	---------------------------------------------------------
  */
 
-import styled from "styled-components";
-import SupportingTitle from "../../components/SupportingTitle";
+import styled from 'styled-components'
+import SupportingTitle from '../../components/SupportingTitle'
 
 export const StartWrapper = styled.div`
     display: flex;

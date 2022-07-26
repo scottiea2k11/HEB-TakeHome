@@ -19,7 +19,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
-    background-color: ${(style) => (style.transparent? 'transparent' : style.theme.colors.third)};
+    background-color: ${(style) => (style.transparent ? 'transparent' : style.theme.colors.third)};
     margin:1rem;
     height: 2rem;
     color:${style => style.theme.colors.white};
@@ -27,7 +27,7 @@ const StyledButton = styled.button`
     border: none;
     backface-visibility: hidden;
     font-weight: bold;
-    border: 2px solid ${(style) => (style.prime ? style.theme.colors.prime  : style.theme.colors.third)};
+    border: 2px solid ${(style) => (style.prime ? style.theme.colors.prime : style.theme.colors.third)};
 
     :hover{
         background-color: ${style => style.theme.colors.primary};
@@ -36,8 +36,8 @@ const StyledButton = styled.button`
     }
 `
 
-const Button = ({...props}) => {
-    const {title, transparent} = props
+const Button = ({ ...props }) => {
+  const { title, transparent } = props
   return (
     <StyledButton transparent={transparent}>{title}</StyledButton>
   )

@@ -13,8 +13,8 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import styled from "styled-components";
-import { FormGroup, Label } from "../../components/Forms";
+import styled from 'styled-components'
+import { FormGroup, Label } from '../../components/Forms'
 
 export const LoginFrame = styled.div`
     width: 30%;

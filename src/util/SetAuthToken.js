@@ -14,16 +14,15 @@
  * ----------	---	---------------------------------------------------------
  */
 
-
-import axios from 'axios';
+import axios from 'axios'
 import jwt from 'jsonwebtoken'
 
 const SetAuthToken = access_token => {
-    if(access_token) {
-        axios.defaults.headers.common['access_token']
-    } else {
-        delete axios.defaults.headers.commmon['access_token']
-    }
+  if (access_token) {
+    axios.defaults.headers.common.access_token
+  } else {
+    delete axios.defaults.headers.commmon.access_token
+  }
 }
 
 export default SetAuthToken

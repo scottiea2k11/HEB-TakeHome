@@ -14,37 +14,37 @@
  * ----------	---	---------------------------------------------------------
  */
 import {
-    LOGIN_SUCCESS,
-    LOGIN_FAIL,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
 } from './LoginActions'
 
 const initialState = {
-    loading: true,
-    token: '',
-    hasToken: false,
-    auth: false
+  loading: true,
+  token: '',
+  hasToken: false,
+  auth: false
 }
 
 export default (state = initialState, action) => {
-    const { type, payload } = action
+  const { type, payload } = action
 
-    switch (type) {
-        case LOGIN_SUCCESS:
-            localStorage.setItem('access_token',payload.access_token)
-            return{
-                ...state,
-                loading: false,
-                auth: false,
-                hasToken: true,
-                token: payload.access_token
-            }
-        case LOGIN_FAIL:
-            return{
-                ...state,
-                loading: false,
-                auth: false
-            }
-        default:
-            return state
-    }
+  switch (type) {
+    case LOGIN_SUCCESS:
+      localStorage.setItem('access_token', payload.access_token)
+      return {
+        ...state,
+        loading: false,
+        auth: false,
+        hasToken: true,
+        token: payload.access_token
+      }
+    case LOGIN_FAIL:
+      return {
+        ...state,
+        loading: false,
+        auth: false
+      }
+    default:
+      return state
+  }
 }

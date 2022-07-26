@@ -19,12 +19,10 @@ import * as s from './LoginContainer.styles'
 // Views
 import LoginFrame from '../../views/login/LoginFrame'
 
-
-
 const LoginContainer = () => {
   return (
     <s.LoginWrapper>
-      <LoginFrame/>
+      <LoginFrame />
     </s.LoginWrapper>
   )
 }

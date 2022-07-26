@@ -17,36 +17,34 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-export const Table =({ children, ...props}) => {
-    return <StyledTable {...props}>{children}</StyledTable>;
+export const Table = ({ children, ...props }) => {
+  return <StyledTable {...props}>{children}</StyledTable>
 }
 
-Table.Head = ({ children, ...props}) => {
-    return <THead {...props}>{children}</THead>;
+Table.Head = ({ children, ...props }) => {
+  return <THead {...props}>{children}</THead>
 }
 
-Table.Body = ({ children, ...props}) => {
-    return <Tbody {...props}>{children}</Tbody>;
+Table.Body = ({ children, ...props }) => {
+  return <Tbody {...props}>{children}</Tbody>
 }
 
-Table.TH = ({ children, ...props}) => {
-    return <TH {...props}>{children}</TH>;
+Table.TH = ({ children, ...props }) => {
+  return <TH {...props}>{children}</TH>
 }
 
-Table.TR =  ({children, ...props}) => {
-    return <TR {...props}>{children}</TR>
+Table.TR = ({ children, ...props }) => {
+  return <TR {...props}>{children}</TR>
 }
 
-Table.TD = ({children, ...props}) => {
-    return <TD {...props}>{children}</TD>
+Table.TD = ({ children, ...props }) => {
+  return <TD {...props}>{children}</TD>
 }
 
 const StyledTable = styled.table`
     overflow: scroll;
     scroll-behavior: smooth;
 `
-
 
 const THead = styled.thead`
 
@@ -70,4 +68,4 @@ const TD = styled.td`
     padding: 1rem;
 `
 
-const COL =styled.col``
+const COL = styled.col``

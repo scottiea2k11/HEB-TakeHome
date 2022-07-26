@@ -13,24 +13,24 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-export const Modal = ({ children, ...props}) => { 
-    return <ModalDiv {...props}>{children}/</ModalDiv>
-};
+export const Modal = ({ children, ...props }) => {
+  return <ModalDiv {...props}>{children}/</ModalDiv>
+}
 
-Modal.Body =  ({children, ...props}) => {
-    return <MBody {...props}>{children}</MBody>;
+Modal.Body = ({ children, ...props }) => {
+  return <MBody {...props}>{children}</MBody>
 }
-Modal.Header =  ({children, ...props}) => {
-    return <MHeader {...props}>{children}</MHeader>;
+Modal.Header = ({ children, ...props }) => {
+  return <MHeader {...props}>{children}</MHeader>
 }
-Modal.Title =  ({children, ...props}) => {
-    return <MoTitle {...props}>{children}</MoTitle>;
+Modal.Title = ({ children, ...props }) => {
+  return <MoTitle {...props}>{children}</MoTitle>
 }
-Modal.Footer =  ({children, ...props}) => {
-    return <MFooter {...props}>{children}</MFooter>;
+Modal.Footer = ({ children, ...props }) => {
+  return <MFooter {...props}>{children}</MFooter>
 }
 
 const ModalDiv = styled.div`
@@ -46,7 +46,7 @@ const ModalDiv = styled.div`
     align-items: center;
     justify-content: center;
     background-color: ${style => style.theme.colors.third};
-`;
+`
 
 const MBody = styled.div`
     position: relative;

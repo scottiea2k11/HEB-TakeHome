@@ -18,7 +18,7 @@ import styled from 'styled-components'
 const SupportingTitle = styled.p`
     font-weight: 500;
     font-size: 26px;
-    color: ${(style) => (style.prime ? style.theme.colors.primary: style.theme.colors.third)};
+    color: ${(style) => (style.prime ? style.theme.colors.primary : style.theme.colors.third)};
 `
 
 export default SupportingTitle

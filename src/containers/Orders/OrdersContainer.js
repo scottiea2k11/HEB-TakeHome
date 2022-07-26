@@ -19,7 +19,6 @@ import OrdersStart from '../../views/orders/OrdersStart'
 import OrdersTable from '../../views/orders/OrdersTable'
 import { GetOrders } from './OrdersActions'
 
-
 import * as s from './OrdersContainers.styles'
 
 const OrdersContainer = props => {
@@ -33,16 +32,14 @@ const OrdersContainer = props => {
     dispatch(GetOrders())
   }, [])
 
-
   return (
     <>
       <s.OrdersWrapper>
-        <OrdersStart/>
-          <OrdersTable orders={Orders}/>
+        <OrdersStart />
+        <OrdersTable orders={Orders} />
       </s.OrdersWrapper>
     </>
   )
 }
-
 
 export default OrdersContainer

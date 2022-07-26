@@ -13,7 +13,7 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
     height: 100vh;

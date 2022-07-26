@@ -27,27 +27,25 @@ import OrdersContainer from '../containers/Orders/OrdersContainer'
 import ProcureContainer from '../containers/Procure/ProcureContainer'
 import SetAuthToken from '../util/SetAuthToken'
 
-
 class App extends Component {
-
-  render() {
+  render () {
     return (
-        <Provider store={store}>
-            <Helmet>
-                <title>{process.env.APP_TITLE}</title>
-            </Helmet>
-            <BrowserRouter>
-                <Theme>
-                    <GlobalStyles/>
-                    <Routes>
-                        <Route path='*' element={<Navigate to='/login' replace/>}/>
-                        <Route path="/login" element={<LoginContainer/>}/>
-                        <Route path="/orders" element={<OrdersContainer/>}/>
-                        <Route path="/procure" element={<ProcureContainer/>}/>
-                    </Routes>
-                </Theme>
-            </BrowserRouter>
-        </Provider>
+      <Provider store={store}>
+        <Helmet>
+          <title>{process.env.APP_TITLE}</title>
+        </Helmet>
+        <BrowserRouter>
+          <Theme>
+            <GlobalStyles />
+            <Routes>
+              <Route path='*' element={<Navigate to='/login' replace />} />
+              <Route path='/login' element={<LoginContainer />} />
+              <Route path='/orders' element={<OrdersContainer />} />
+              <Route path='/procure' element={<ProcureContainer />} />
+            </Routes>
+          </Theme>
+        </BrowserRouter>
+      </Provider>
     )
   }
 }

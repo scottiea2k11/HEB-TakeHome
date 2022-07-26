@@ -24,12 +24,12 @@ import { PostOrder } from '../Orders/OrdersActions'
 const ProcureContainer = props => {
   return (
     <>
-        <s.ProcureWrapper>
-            <s.TitleWrapper>
-              <Title> {process.env.PROCURE_TITLE}</Title>
-            </s.TitleWrapper>
-            <Procure postOrder={PostOrder}/>
-        </s.ProcureWrapper>
+      <s.ProcureWrapper>
+        <s.TitleWrapper>
+          <Title> {process.env.PROCURE_TITLE}</Title>
+        </s.TitleWrapper>
+        <Procure postOrder={PostOrder} />
+      </s.ProcureWrapper>
     </>
   )
 }
