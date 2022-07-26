@@ -21,6 +21,7 @@ import {
 const initialState = {
     loading: true,
     token: '',
+    hasToken: false,
     auth: false
 }
 
@@ -29,11 +30,13 @@ export default (state = initialState, action) => {
 
     switch (type) {
         case LOGIN_SUCCESS:
+            localStorage.setItem('access_token',payload.access_token)
             return{
                 ...state,
                 loading: false,
                 auth: false,
-                token: payload
+                hasToken: true,
+                token: payload.access_token
             }
         case LOGIN_FAIL:
             return{

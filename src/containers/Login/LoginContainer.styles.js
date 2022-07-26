@@ -15,8 +15,7 @@
  */
 import styled from "styled-components"
 
-import Wrapper from "../../components/Wrapper"
-import Input from "../../components/Input"
+import {Wrapper} from "../../components/Wrapper"
 
 export const LoginWrapper = styled(Wrapper)`
     height: 100%;
@@ -25,7 +24,3 @@ export const LoginWrapper = styled(Wrapper)`
     justify-content: center;
     align-items: center;
 `
-
-
-
-// export const Input = styled(Input)

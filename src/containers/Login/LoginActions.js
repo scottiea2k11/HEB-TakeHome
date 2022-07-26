@@ -14,52 +14,44 @@
  * ----------	---	---------------------------------------------------------
  */
 import axios from "axios"
-
+import SetAuthToken from "../../util/SetAuthToken"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAIL = "LOGIN_FAIL"
-
-
 
 export const Login = (loginForm) => async (dispatch) => {
     try {
         const {username, password} = loginForm
         const body = JSON.stringify({username, password})
 
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("accept", "application/json");
-
-        var raw = JSON.stringify({
-        "password": "test",
-        "username": "test"
-        });
-
-        var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow',
-        mode: 'cors'
+        var config = {
+          method: 'POST',
+          url: '/routes/auth.routes/auth',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data : body
         };
 
-        fetch("/auth", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
-            } catch (error) {
-                console.error(error)
-                dispatch({
-                    type: LOGIN_FAIL,
-                })
-            }
-        }
-
-export const Auth = (token) => async (dispatch) => {
-    try {
-        const token = axios.post().then(data => {
-            return data
+        await axios(config).then( (response) => {
+          dispatch({
+            type: LOGIN_SUCCESS,
+            payload: response.data
+          })
+          if (localStorage.access_token) {
+            SetAuthToken(localStorage.access_token)
+          }
         })
+        .catch(function (error) {
+          console.log(error);
+        });
+
     } catch (error) {
-        console.error(error)
+        dispatch({
+            type: LOGIN_FAIL,
+        })
     }
+}
+
+export const Logout = () => async (dispatch) => {
+  
 }
