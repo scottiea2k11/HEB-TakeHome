@@ -13,3 +13,59 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
+import { Modal, MClose } from '../../components/Modal'
+import {Label } from '../../components/Forms'
+import { Text} from '../../components/Content'
+import Button from '../../components/Button'
+import { Row } from '../../components/Row'
+import { Col } from '../../components/Col'
+
+
+const CompleteOrderModal = ({...props}) => {
+    const { Name, Flavor, Crust, Size, Table_No } = props.form;
+    return (
+        <Modal show={props.show}>
+            <Modal.Header>
+                <Modal.Title>{process.env.COMPLETE_TITLE}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Row>
+                    <Col>
+                        <Label>Name</Label>
+                        <Text>{Name}</Text>
+                    </Col>
+                    <Col>
+                        <Label>Flavor</Label>
+                        <Text>{Flavor}</Text>
+                    </Col>
+                    <Col>
+                        <Label>Crust</Label>
+                        <Text>{Crust}</Text>
+                    </Col>
+                    <Col>
+                        <Label>Size</Label>
+                        <Text>{Size}</Text>
+                    </Col>
+                    <Col>
+                        <Label>Table Number</Label>
+                        <Text>{Table_No}</Text>
+                    </Col>
+                </Row>
+            </Modal.Body>
+            <Modal.Footer>
+                <Link to="/orders">
+                    <Button title='Ok'/>
+                </Link>
+            </Modal.Footer>
+        </Modal>
+  )
+}
+
+CompleteOrderModal.propTypes = {
+}
+
+export default CompleteOrderModal

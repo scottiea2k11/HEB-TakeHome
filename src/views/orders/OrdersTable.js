@@ -15,14 +15,15 @@
  */
 
 import React, {useState, useEffect} from 'react'
-import {Table}  from '../../components/Table'
 import * as s from './OrdersTable.styles'
 import ControlledTable from './ControlledTable'
 import ControlledSearch from './ControlledSearch'
 import SupportingTitle from '../../components/SupportingTitle'
 import { Search } from '../../util/SearchParser'
+import MockData from '../../../mockdata.json'
 
 const OrdersTable = ({ ...props }) => {
+  const { orders } = props;
   const [searchVal, setSearchVal ] = useState("")
   const [data, setData] = useState([])
   const handleChange = (e) => {
@@ -35,18 +36,14 @@ const OrdersTable = ({ ...props }) => {
       setData(data => data = parsedData)
       console.dir(parsedData)
     }
-    searchArray(data, searchVal)
+    searchArray(orders, searchVal)
   }, [searchVal])
 
   return (
     <s.TableWrapper>
       <SupportingTitle>{process.env.LIST_TITLE}</SupportingTitle>
-      <s.OptionsRibbon>
-        <ControlledSearch searchVal={searchVal} handleChange={handleChange}/>
-      </s.OptionsRibbon>
-      <s.TableWrapper>
-        <ControlledTable data={data}/>
-      </s.TableWrapper>
+      <ControlledSearch searchVal={searchVal} handleChange={handleChange}/>
+      <ControlledTable data={data}/>
     </s.TableWrapper>
   )
 }

@@ -16,16 +16,7 @@
 import styled from "styled-components";
 
 
-export const TableWrapper = styled(Wrapper)`
-    display: flex;
-    flex-direction: column;
-    
-`
-
-export const OptionsRibbon = styled(Wrapper)`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    margin: 1rem 0;
-    height: 30%;
+export const TableWrapper = styled.div`
+    justify-content: center;
+    align-items: center;
 `

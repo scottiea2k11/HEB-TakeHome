@@ -13,18 +13,32 @@
  * Date      	By	Comments
  * ----------	---	---------------------------------------------------------
  */
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import OrdersStart from '../../views/orders/OrdersStart'
 import OrdersTable from '../../views/orders/OrdersTable'
+import { GetOrders } from './OrdersActions'
+
 
 import * as s from './OrdersContainers.styles'
 
 const OrdersContainer = props => {
+  const dispatch = useDispatch()
+
+  const { Orders } = useSelector(state => ({
+    Orders: state.order.orders
+  }))
+
+  useEffect(() => {
+    dispatch(GetOrders())
+  }, [])
+
+
   return (
     <>
       <s.OrdersWrapper>
         <OrdersStart/>
-        <OrdersTable/>
+          <OrdersTable orders={Orders}/>
       </s.OrdersWrapper>
     </>
   )

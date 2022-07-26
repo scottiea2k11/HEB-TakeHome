@@ -16,6 +16,7 @@
 
 import React from 'react'
 import * as s from './OrdersStart.styles.js'
+import { Link } from 'react-router-dom'
 
 import Button from '../../components/Button.js'
 
@@ -28,7 +29,9 @@ const OrdersStart = () => {
         </s.StartText>
       </s.TextWrapper>
       <s.ButtonWrapper>
-        <Button prime={false} title={process.env.START_ORDER_BTN} transparent={false}/>
+          <Link to="/procure">
+            <Button prime={false} title={process.env.START_ORDER_BTN} transparent={false}/>
+          </Link>
       </s.ButtonWrapper>
     </s.StartWrapper>
   )
