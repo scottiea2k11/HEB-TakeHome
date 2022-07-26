@@ -48,14 +48,26 @@ const StyledTable = styled.table`
 `
 
 
-const THead = styled.thead``
+const THead = styled.thead`
 
-const Tbody = styled.tbody``
+`
 
-const TR = styled.tr``
+const Tbody = styled.tbody`
+    
+`
 
-const TH = styled.th``
+const TR = styled.tr`
+    margin:0rem 2rem;
+    padding: 0.5rem;
+`
 
-const TD = styled.td``
+const TH = styled.th`
+    margin: 1rem;
+    padding: 0.5rem;
+`
+
+const TD = styled.td`
+    padding: 1rem;
+`
 
 const COL =styled.col``

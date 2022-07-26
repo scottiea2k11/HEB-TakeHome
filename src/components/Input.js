@@ -18,7 +18,6 @@ import React from 'react'
 import styled from "styled-components";
 
 export const InputStyle = styled.input`
-    width: inherit;
     height: 1rem;
     margin: 0 1rem;
     padding: 0.5rem;
