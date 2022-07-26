@@ -29,7 +29,7 @@ router.get('/orders', async (req, res) => {
 })
 
 router.post('/orders', [
-  check('Crust', 'Crust is required.').notEmpty(),
+  check('Crust', 'Crust is needed.').notEmpty(),
   check('Flavor', 'Flavor is needed').notEmpty(),
   check('Size', 'Size is needed').notEmpty(),
   check('Table_No', 'Table Number is needed').notEmpty()
@@ -53,7 +53,7 @@ async (req, res) => {
     axios.post('https://order-pizza-api.herokuapp.com/api/orders', body, config).then(response => {
       res.status(response.status).json(response.data)
     }).catch( error => {
-      console.log(error)
+      res.status(400).json(error)
     })
   } catch (error) {
     res.status(400).json(error.data)

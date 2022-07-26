@@ -15,6 +15,7 @@
  */
 
 import axios from 'axios'
+import { setNotice } from '../../components/notice/NoticeActions'
 
 export const ORDER_POSTED = 'ORDER_POSTED'
 export const ORDER_FAILED = 'ORDER_FAILED'
@@ -48,14 +49,16 @@ export const PostOrder = (form) => async (dispatch) => {
     }
 
     await axios(config).then(response => {
+      dispatch(setNotice(response.data.message, true))
       dispatch({
         type: ORDER_POSTED
       })
-      console.info(response.data.message)
+    }).catch(error => {
+      const errors = error.response.data.errors
+      if (errors.length > 0) errors.forEach(err => {dispatch(setNotice(err.msg, false))})
     })
   } catch (error) {
-    const errors = err.response.data.errors
-    if (errors) errors.array.forEach((err) => console.error(err))
+    dispatch(setNotice('Order failed.', false))
     dispatch({
       type: ORDER_FAILED
     })
@@ -77,7 +80,7 @@ export const DeleteOrder = (Order_ID) => async (dispatch) => {
       dispatch({
         type: ORDER_DELETED
       })
-      console.info(response.data.message)
+      dispatch(setNotice(response.data.message, true))
     })
   } catch (error) {
     dispatch({

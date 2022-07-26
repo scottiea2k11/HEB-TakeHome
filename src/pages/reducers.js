@@ -19,9 +19,11 @@ import { combineReducers } from 'redux'
 // Reducers
 import auth from '../containers/Login/LoginReducers'
 import order from '../containers/Orders/OrdersReducers'
+import notice from '../components/notice/NoticeReducers'
 
 // Combine
 export default combineReducers({
   auth,
-  order
+  order,
+  notice
 })
