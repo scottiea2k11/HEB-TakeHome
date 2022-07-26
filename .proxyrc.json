@@ -1,0 +1,5 @@
+{
+  "/routes": {
+    "target": "http://localhost:1234"
+  }
+}
