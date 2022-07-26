@@ -20,7 +20,7 @@ import ControlledTable from './ControlledTable'
 import ControlledSearch from './ControlledSearch'
 import SupportingTitle from '../../components/SupportingTitle'
 import { Search } from '../../util/SearchParser'
-import MockData from '../../../mockdata.json'
+import { isEmpty } from 'lodash'
 
 const OrdersTable = ({ ...props }) => {
   const { orders } = props
@@ -32,12 +32,13 @@ const OrdersTable = ({ ...props }) => {
 
   useEffect(() => {
     async function searchArray (array, val) {
-      const parsedData = await Search(array, val)
-      setData(data => data = parsedData)
-      console.dir(parsedData)
+      if(isEmpty(data)){
+        const parsedData = await Search(array, val)
+        setData(data => data = parsedData)
+      }
     }
     searchArray(orders, searchVal)
-  }, [searchVal])
+  }, [searchVal, orders])
 
   return (
     <s.TableWrapper>

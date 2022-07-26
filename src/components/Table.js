@@ -41,6 +41,10 @@ Table.TD = ({ children, ...props }) => {
   return <TD {...props}>{children}</TD>
 }
 
+Table.DEL = ({ children, ...props }) => {
+  return <DEL {...props}>{children}</DEL>
+}
+
 const StyledTable = styled.table`
     overflow: scroll;
     scroll-behavior: smooth;
@@ -66,6 +70,16 @@ const TH = styled.th`
 
 const TD = styled.td`
     padding: 1rem;
+    color: ${style => style.theme.colors.white};
 `
 
-const COL = styled.col``
+const DEL = styled.td`
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  color: ${style => style.theme.colors.third};
+  padding:1rem 0;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 500;
+`

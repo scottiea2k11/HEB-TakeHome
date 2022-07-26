@@ -34,6 +34,7 @@ router.post('/orders', [
   check('Size', 'Size is needed').notEmpty(),
   check('Table_No', 'Table Number is needed').notEmpty()
 ],
+
 async (req, res) => {
   const validationErrors = validationResult(req)
 
@@ -51,6 +52,8 @@ async (req, res) => {
     }
     axios.post('https://order-pizza-api.herokuapp.com/api/orders', body, config).then(response => {
       res.status(response.status).json(response.data)
+    }).catch( error => {
+      console.log(error)
     })
   } catch (error) {
     res.status(400).json(error.data)
@@ -60,7 +63,7 @@ async (req, res) => {
 router.delete('/orders', async (req, res) => {
   try {
     const { Order_ID } = req.body
-    axios.delete(`http://order-pizza-api.herokuapp.com/api/orders?${Order_ID}`).then(response => {
+    axios.delete(`http://order-pizza-api.herokuapp.com/api/orders/${Order_ID}`).then(response => {
       res.status(200).json(response.data)
     })
   } catch (error) {
