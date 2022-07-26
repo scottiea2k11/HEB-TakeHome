@@ -27,6 +27,7 @@ app.use(express.json({ extended: false }))
 app.use(express.urlencoded({ extended: true }))
 app.use('/routes/orders.routes', require('./routes/orders.routes'))
 app.use('/routes/auth.routes', require('./routes/auth.routes'))
+console.log(process.env.NODE_ENV)
 
 if (process.env.NODE_ENV === 'production') {
   console.info('Production enabled.')
