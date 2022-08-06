@@ -33,10 +33,6 @@ const CompleteOrderModal = ({ ...props }) => {
       <Modal.Body>
         <Row>
           <Col>
-            <Label>Name</Label>
-            <Text>{Name}</Text>
-          </Col>
-          <Col>
             <Label>Flavor</Label>
             <Text>{Flavor}</Text>
           </Col>

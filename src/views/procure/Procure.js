@@ -24,6 +24,7 @@ import SupportingTitle from '../../components/SupportingTitle'
 import Button from '../../components/Button'
 import * as f from '../../components/Forms'
 import * as s from './Procure.styles'
+import { Selector } from '../../components/Selector'
 
 const Procure = ({ ...props }) => {
   const dispatch = useDispatch()
@@ -65,13 +66,25 @@ const Procure = ({ ...props }) => {
               <Text>{process.env.PROCURE_NOTICE}</Text>
             </s.FormCol>
             <s.FormCol flexPosition={2}>
-              <InputStyle type='text' name='Flavor' placeholder='Flavor' value={form.flavor} />
-              <InputStyle type='text' name='Crust' placeholder='Crust' value={form.crust} />
-              <InputStyle type='text' name='Size' placeholder='Size' value={form.size} />
+              <Selector name='Flavor'>
+                <Selector.Option children='Meat' value='Meat'/>
+                <Selector.Option children='Works' value='Works'/>
+                <Selector.Option children='Vegan' value='Vegan'/>
+              </Selector>
+              <Selector name='Crust'>
+                <Selector.Option children='THIN' value='THIN'/>
+                <Selector.Option children='NORMAL' value='NORMAL'/>
+                <Selector.Option children='THICK' value='THICK'/>
+              </Selector>
+              <Selector name='Size'>
+                <Selector.Option children='S' value='S'/>
+                <Selector.Option children='M' value='M'/>
+                <Selector.Option children='L' value='L'/>
+              </Selector>
             </s.FormCol>
             <s.FormCol flexPosition={3}>
               <SupportingTitle>Table Number</SupportingTitle>
-              <SupportingTitle>{form.tableNumber}</SupportingTitle>
+              <SupportingTitle>{form.Table_No}</SupportingTitle>
               <Link to='/orders'>
                 <Button title='Cancel' transparent />
               </Link>
