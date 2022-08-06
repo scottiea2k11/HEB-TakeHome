@@ -17,7 +17,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import OrdersStart from '../../views/orders/OrdersStart'
 import OrdersTable from '../../views/orders/OrdersTable'
-import { GetOrders} from './OrdersActions'
+import { GetOrders } from './OrdersActions'
 
 import * as s from './OrdersContainers.styles'
 

@@ -49,7 +49,7 @@ export const PostOrder = (form) => async (dispatch) => {
     }
 
     await axios(config).then(response => {
-      dispatch(setNotice(response.data.message, true))
+      dispatch(setNotice('ORDER SUBMITTED!', true))
       dispatch({
         type: ORDER_POSTED
       })
@@ -80,6 +80,7 @@ export const DeleteOrder = (Order_ID) => async (dispatch) => {
       dispatch({
         type: ORDER_DELETED
       })
+      dispatch(GetOrders())
       dispatch(setNotice(response.data.message, true))
     })
   } catch (error) {

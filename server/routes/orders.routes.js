@@ -41,21 +41,26 @@ async (req, res) => {
   if (!validationErrors.isEmpty()) return res.status(400).json({ errors: validationErrors.array() })
 
   try {
-    const { Crust, Flavor, Size, Table_No } = req.body
-
-    const body = JSON.stringify({ Crust, Flavor, Size, Table_No })
-    const config = {
+    const password = 'test'
+    const username = 'test'
+    const bodyTwo = JSON.stringify({password, username})
+    const configTwo = {
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + token
+        'Content-Type': 'application/json'
       }
     }
-    axios.post('https://order-pizza-api.herokuapp.com/api/orders', body, config).then(response => {
-      res.status(response.status).json(response.data)
-    }).catch( error => {
-      res.status(400).json(error)
+    await axios.post('https://order-pizza-api.herokuapp.com/api/auth', bodyTwo, configTwo).then(response => {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${response.data.access_token}`
+        }
+      }
+      axios.post('https://order-pizza-api.herokuapp.com/api/orders', req.body, config)
+      res.status(200).json({msg: 'Order Submitted'})
     })
   } catch (error) {
+    console.dir(error)
     res.status(400).json(error.data)
   }
 })

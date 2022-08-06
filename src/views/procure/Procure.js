@@ -29,7 +29,6 @@ const Procure = ({ ...props }) => {
   const dispatch = useDispatch()
   const [modalShow, setModalShow] = useState(false)
   const [form, setForm] = useState({
-    Name: '',
     Flavor: '',
     Crust: '',
     Size: '',
@@ -52,7 +51,7 @@ const Procure = ({ ...props }) => {
       const min = 1
       const max = 50
       const newTable = min + Math.random() * (max - min)
-      await setForm({ ...form, tableNumber: Math.round(newTable) })
+      await setForm({ ...form, Table_No: Math.round(newTable) })
     }
     SetTableNum()
   }, [])
@@ -66,7 +65,6 @@ const Procure = ({ ...props }) => {
               <Text>{process.env.PROCURE_NOTICE}</Text>
             </s.FormCol>
             <s.FormCol flexPosition={2}>
-              <InputStyle type='text' name='Name' placeholder='Name' value={form.name} />
               <InputStyle type='text' name='Flavor' placeholder='Flavor' value={form.flavor} />
               <InputStyle type='text' name='Crust' placeholder='Crust' value={form.crust} />
               <InputStyle type='text' name='Size' placeholder='Size' value={form.size} />
